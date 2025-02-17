@@ -5,15 +5,15 @@ module.exports = {
 		.setName('assemble_amulet')
 		.setDescription('Assemble the Sacred Amulet to unlock the flag.')
 		.addStringOption(option =>
-			option.setName('The First Piece')
+			option.setName('1st')
 				.setDescription('The first piece of the amulet.')
 				.setRequired(true))
 		.addStringOption(option =>
-			option.setName('The Second Piece')
+			option.setName('2nd')
 				.setDescription('The second piece of the amulet.')
 				.setRequired(true))
 		.addStringOption(option =>
-			option.setName('The Third Piece')
+			option.setName('3rd')
 				.setDescription('The third piece of the amulet.')
 				.setRequired(true)),
 	async execute(interaction) {
