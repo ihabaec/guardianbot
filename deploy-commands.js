@@ -26,7 +26,7 @@ const rest = new REST({ version: '10' }).setToken(token);
 		// Register commands for the private server
 		await rest.put(
 			Routes.applicationGuildCommands(clientId, guildIds[1]),
-			{ body: commands.filter(cmd => cmd.name === 'assemble_amulet' || cmd.name === 'commence_challenge' || cmd.name === 'secret_message') },
+			{ body: commands.filter(cmd => cmd.name === 'assemble_amulet' || cmd.name === 'commence_challenge') },
 		);
 
 		console.log('Slash commands registered successfully!');
