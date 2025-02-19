@@ -1,5 +1,3 @@
-const { MessageReaction, PartialMessageReaction, PartialUser, User, Snowflake } = require('discord.js');
-
 function buildReverseSearch(config) {
 	return config.reduce((index, conf) => {
 		if (!index[conf.messageId]) {
