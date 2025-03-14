@@ -17,10 +17,9 @@ class ReactionDMHandler {
 
 	async addReaction(reaction, user) {
 		try {
-			// Ignore reactions from bots
+
 			if (user.bot) return;
 
-			// Fetch the full reaction and user objects if they are partial
 			if (reaction.partial) {
 				try {
 					await reaction.fetch();
@@ -30,7 +29,6 @@ class ReactionDMHandler {
 				}
 			}
 
-			// Ensure the reaction is on a valid message
 			const messageId = reaction.message.id;
 			const emoji = reaction.emoji.name || reaction.emoji.id;
 
@@ -38,10 +36,8 @@ class ReactionDMHandler {
 				return; // No matching configuration for this reaction
 			}
 
-			// Retrieve the DM content based on the reaction
 			const dmContent = this.reverseConfig[messageId][emoji];
 
-			// Send the DM to the user
 			try {
 				await user.send(dmContent);
 				console.log(`Sent DM to ${user.tag}: "${dmContent}"`);
