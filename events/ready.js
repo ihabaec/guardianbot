@@ -4,7 +4,6 @@ module.exports = {
 	name: Events.ClientReady,
 	once: true,
 	async execute(client) {
-		console.log(`Logged in as ${client.user.tag}!`);
 
 		// Optional: Fetch the channel and message for debugging or other purposes
 		const channelId = '1340277521169514548'; // Replace with your actual channel ID
