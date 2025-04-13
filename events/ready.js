@@ -6,7 +6,7 @@ module.exports = {
 	async execute(client) {
 
 		// Optional: Fetch the channel and message for debugging or other purposes
-		const channelId = '1340277521169514548'; // Replace with your actual channel ID
+		const channelId = '1331407405371621428'; // Replace with your actual channel ID
 		const channel = client.channels.cache.get(channelId);
 		if (!channel) {
 			console.error('Channel not found!');
@@ -14,8 +14,7 @@ module.exports = {
 		}
 
 		try {
-			// Example: Fetch the first message in the configuration for debugging
-			const messageId = '1341517540827988130'; // Replace with your actual message ID
+			const messageId = '1360627599126036560';
 			const message = await channel.messages.fetch(messageId);
 			console.log('Fetched message with ID:', message.id);
 		} catch (error) {

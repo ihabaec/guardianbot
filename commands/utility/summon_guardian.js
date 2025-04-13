@@ -6,7 +6,7 @@ module.exports = {
 		.setDescription('Summon the Guardian of the Tomb to begin your quest.'),
 	async execute(interaction) {
 		await interaction.reply({
-			content: 'Greetings, seeker of the Tomb of the Pharaoh. To unlock the secrets within, you must retrieve the three missing pieces of the Sacred Amulet. Begin your journey by joining the hidden sanctuary: https://discord.gg/6T5QzASua4.',
+			content: 'Greetings, seeker of the Tomb of the Pharaoh. To unlock the secrets within, you must retrieve the three missing pieces of the Sacred Amulet. Begin your journey by joining the hidden sanctuary:.',
 			ephemeral: true,
 		});
 	},

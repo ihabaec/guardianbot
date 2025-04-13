@@ -45,17 +45,16 @@ for (const file of eventFiles) {
 	}
 }
 
-// Centralized reaction-to-DM configuration
 const config = [
 	{
-		messageId: '1341517540827988130', // Replace with your actual message ID
+		messageId: '1360627599126036560',
 		reaction: '✅',
-		dmContent: 'You reacted with the right emoji! Here\'s your reward.  | Horus | ',
+		dmContent: 'You reacted with the right emoji! Here\'s your reward.  | zebiyb | kon fekerti fiha chwiya kon lgitiha direct, khona mcha lih zebiyb',
 	},
 	{
-		messageId: '1341517540827988130', // Replace with your actual message ID
+		messageId: '1360627599126036560',
 		reaction: '❌',
-		dmContent: 'Hocus Pocus!',
+		dmContent: 'Ydk Fih! l3kss a hnini',
 	},
 ];
 
