@@ -23,7 +23,6 @@ const rest = new REST({ version: '10' }).setToken(token);
 			{ body: [commands.find(cmd => cmd.name === 'summon_guardian')] },
 		);
 
-		// Register commands for the private server
 		await rest.put(
 			Routes.applicationGuildCommands(clientId, guildIds[1]),
 			{ body: commands.filter(cmd => cmd.name === 'assemble_amulet' || cmd.name === 'commence_challenge') },

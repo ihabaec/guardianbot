@@ -10,6 +10,8 @@ function buildReverseSearch(config) {
 
 class ReactionDMHandler {
 	constructor(client, config) {
+		this.client = client;
+		this.config = config;
 		this.reverseConfig = buildReverseSearch(config);
 		this.addReaction = this.addReaction.bind(this);
 		client.on('messageReactionAdd', this.addReaction);
@@ -17,7 +19,6 @@ class ReactionDMHandler {
 
 	async addReaction(reaction, user) {
 		try {
-
 			if (user.bot) return;
 
 			if (reaction.partial) {
@@ -32,11 +33,20 @@ class ReactionDMHandler {
 			const messageId = reaction.message.id;
 			const emoji = reaction.emoji.name || reaction.emoji.id;
 
-			if (!this.reverseConfig[messageId] || !this.reverseConfig[messageId][emoji]) {
-				return; // No matching configuration for this reaction
+			if (!this.reverseConfig[messageId]) {
+				return;
 			}
 
-			const dmContent = this.reverseConfig[messageId][emoji];
+			let dmContent;
+
+			if (emoji === '✅' && this.reverseConfig[messageId]['✅']) {
+				dmContent = this.reverseConfig[messageId]['✅'];
+			}
+			else if (this.reverseConfig[messageId]['❌']) {
+				dmContent = this.reverseConfig[messageId]['❌'];
+			} else {
+				return;
+			}
 
 			try {
 				await user.send(dmContent);

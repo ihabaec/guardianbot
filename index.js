@@ -4,7 +4,8 @@ const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 const ReactionDMHandler = require('./events/Reactionevent.js'); // Adjust the filename if needed
 
-// Initialize the Discord client
+const mssgId = 'PUT MESSAGE ID HERE';
+
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -14,7 +15,6 @@ const client = new Client({
 	],
 });
 
-// Load commands
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(commandsPath);
@@ -32,37 +32,36 @@ for (const folder of commandFolders) {
 	}
 }
 
-// Load events
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
 	const filePath = path.join(eventsPath, file);
 	const event = require(filePath);
 	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args, client)); // Pass client to event
+		client.once(event.name, (...args) => event.execute(...args, client));
 	} else {
-		client.on(event.name, (...args) => event.execute(...args, client)); // Pass client to event
+		client.on(event.name, (...args) => event.execute(...args, client));
 	}
 }
 
+
 const config = [
 	{
-		messageId: '1360627599126036560',
+		messageId: mssgId,
 		reaction: '✅',
-		dmContent: 'You reacted with the right emoji! Here\'s your reward.  | zebiyb | kon fekerti fiha chwiya kon lgitiha direct, khona mcha lih zebiyb',
+		dmContent: 'You reacted with the right emoji! Here\'s your reward.  | ANSWER 2 |',
 	},
 	{
-		messageId: '1360627599126036560',
+		messageId: mssgId,
 		reaction: '❌',
-		dmContent: 'Ydk Fih! l3kss a hnini',
+		dmContent: 'Nice try, think mark ',
 	},
 ];
 
-// Initialize the ReactionDMHandler when the bot is ready
 client.once('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
-	new ReactionDMHandler(client, config); // Pass the centralized configuration
+	new ReactionDMHandler(client, config);
 });
 
-// Log in to Discord
+
 client.login(token);

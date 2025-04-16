@@ -4,9 +4,8 @@ module.exports = {
 	name: Events.ClientReady,
 	once: true,
 	async execute(client) {
-
-		// Optional: Fetch the channel and message for debugging or other purposes
-		const channelId = '1331407405371621428'; // Replace with your actual channel ID
+		// THIS IS JUST FOR TESTING: to check if the message exists.
+		const channelId = '1331407405371621428';
 		const channel = client.channels.cache.get(channelId);
 		if (!channel) {
 			console.error('Channel not found!');
