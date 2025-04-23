@@ -67,7 +67,7 @@ This bot is designed to be easily customizable for different CTF themes:
 
 This project is publicly available and free to use for CTF events and educational purposes. Feel free to modify and adapt it for your own CTF competitions!
 
-If you use this bot or draw inspiration from it for your CTF events, I'd appreciate a small acknowledgment like "Inspired by [your GitHub username]" in your project documentation.
+If you use this bot or draw inspiration from it for your CTF events, I'd appreciate a small acknowledgment like "Inspired by ihabaec" in your project documentation.
 
 ## Contributing
 
